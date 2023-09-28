@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  fecha: 2023-09-06
+  email: MyString
+  users: one
+  cities: one
+  materials: one
+
+two:
+  type: 
+  fecha: 2023-09-06
+  email: MyString
+  users: two
+  cities: two
+  materials: two

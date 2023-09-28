@@ -1,0 +1,45 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <div class="container-fluid">
+    <%= link_to "JetMaintain", root_path, :class=>"navbar-brand nav-link active text-white" %>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<%= root_path %>">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Motor", motors_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Mantención", maintenances_path, class:"nav-link" %>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Terminos y Condiciones</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <% if current_user %>
+              <%= current_user&.email %> (<%= current_user&.role %>)
+            <% else %>  
+              Register as Operator
+            <% end %>
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <% if current_user %>
+              <li><%= button_to("Log Out", destroy_user_session_path, method: :delete, class: 'btn') %></li>
+            <% else %>  
+              <li><%= link_to "Sign up", new_user_registration_path, class: 'btn' %></li>
+              <li><%= link_to "Login", new_user_session_path, class: 'btn' %></li>
+            <% end %>            
+          </ul>
+        </li>        
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
